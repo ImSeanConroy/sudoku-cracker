@@ -12,16 +12,24 @@ Sit back, relax, and let your Sudoku puzzles be solved using brute-force.
 
 ## Table of Contents
 
-- [sudoku-cracker](#sudoku-cracker)
-  - [Table of Contents](#table-of-contents)
-  - [Getting Started](#getting-started)
-  - [Usage](#usage)
-    - [Example Input](#example-input)
-    - [Additional Options](#additional-options)
-  - [License](#license)
-  - [Support](#support)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Example Input](#example-input)
+  - [Additional Options](#additional-options)
+- [Testing](#testing)
+- [License](#license)
+- [Support](#support)
 
 ## Getting Started
+
+### Prerequisites
+
+Before getting started, ensure you have the following installed:
+- [python](https://www.python.org/)
+
+### Installation
 
 The following contains instruction for getting this application running locally:
 
@@ -63,6 +71,14 @@ python main.py --cubes "..." --no-color
 Disable Runtime Display:
 ```bash
 python main.py --cubes "..." --no-runtime
+```
+
+## Testing
+
+1. Run the following command to run the full test suit:
+
+```bash
+pytest tests/
 ```
 
 ## License

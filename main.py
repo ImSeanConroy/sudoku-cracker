@@ -30,6 +30,5 @@ def main():
     else:
         print("No solution exists.")
 
-
 if __name__ == "__main__":
     main()
