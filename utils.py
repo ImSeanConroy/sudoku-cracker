@@ -16,3 +16,17 @@ def parse_cubes(cube_strs):
                 board[row_offset + i][col_offset + j] = int(cube_rows[i * 3 + j])
 
     return board
+
+def read_from_file(file_path):
+    """Reads a Sudoku puzzle from a specified text file."""
+    board = []
+    try:
+        with open(file_path, 'r') as file:
+            board = [list(map(int, line.split())) for line in file]
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+        return []
+    except ValueError:
+        print("Error: The file contains non-integer values.")
+        return []
+    return board

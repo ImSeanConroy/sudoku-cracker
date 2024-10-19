@@ -1,24 +1,15 @@
 # sudoku-cracker
 
-Sit back, relax, and let your Sudoku puzzles be solved using brute-force.
+Sit back, relax, and let your Sudoku puzzles be solved using brute-force. This simple Python CLI tool allows you to input puzzles directly or provide a file path for automatic solving.
 
-<div>
-  <p>
-    <a href="https://github.com/ImSeanConroy/sudoku-cracker/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/ImSeanConroy/sudoku-cracker/issues">Request Feature</a>
-  </p>
-</div>
+![Project Image](https://github.com/ImSeanConroy/sudoku-cracker/blob/main/.github/repo-img.png)
+
 
 ## Table of Contents
 
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
 - [Usage](#usage)
-  - [Example Input](#example-input)
-  - [Additional Options](#additional-options)
-- [Testing](#testing)
+- [Development and Testing](#development-and-testing)
 - [License](#license)
 - [Support](#support)
 
@@ -27,7 +18,7 @@ Sit back, relax, and let your Sudoku puzzles be solved using brute-force.
 ### Prerequisites
 
 Before getting started, ensure you have the following installed:
-- [python](https://www.python.org/)
+- [Python](https://www.python.org/)
 
 ### Installation
 
@@ -38,15 +29,18 @@ The following contains instruction for getting this application running locally:
 git clone https://github.com/ImSeanConroy/sudoku-cracker.git
 cd sudoku-cracker
 ```
+
 2. Create and start virtual environment
 ```bash
 python3 -m venv env
 source env/bin/activate
 ```
+
 3. Install dependencies
 ```bash
 pip3 install -r requirements.txt
 ```
+
 4. Run script
 ```bash
 python main.py --cubes "cube1" "cube2" "cube3" "cube4" "cube5" "cube6" "cube7" "cube8" "cube9"
@@ -63,6 +57,11 @@ python main.py --cubes "0,0,3,0,2,9,1,0,0" "5,0,0,7,0,0,0,0,0" "1,6,0,0,0,5,0,0,
 
 ### Additional Options
 
+Solve puzzle from a file:
+```bash
+python main.py --file "example.txt"
+```
+
 Disable Color Output:
 ```bash
 python main.py --cubes "..." --no-color
@@ -73,7 +72,7 @@ Disable Runtime Display:
 python main.py --cubes "..." --no-runtime
 ```
 
-## Testing
+## Development and Testing
 
 1. Run the following command to run the full test suit:
 
