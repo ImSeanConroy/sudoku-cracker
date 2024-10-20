@@ -1,4 +1,4 @@
-# sudoku-cracker
+# Sudoku Cracker
 
 Sit back, relax, and let your Sudoku puzzles be solved using brute-force. This simple Python CLI tool allows you to input puzzles directly or provide a file path for automatic solving.
 
@@ -43,7 +43,7 @@ pip3 install -r requirements.txt
 
 4. Run script
 ```bash
-python main.py --cubes "cube1" "cube2" "cube3" "cube4" "cube5" "cube6" "cube7" "cube8" "cube9"
+python main.py --cubes cube1 cube2 cube3 cube4 cube5 cube6 cube7 cube8 cube9
 ```
 
 ## Usage
@@ -51,8 +51,11 @@ python main.py --cubes "cube1" "cube2" "cube3" "cube4" "cube5" "cube6" "cube7" "
 The Sudoku Cracker allows you to input your Sudoku puzzle as 9 groups of 3x3 numbers. Each group represents a 3x3 cube, and the numbers are separated by commas. Use `0` for empty cells.
 
 ### Example Input
+
+Solve puzzle from a set of cubes (input directly):
+
 ```bash
-python main.py --cubes "0,0,3,0,2,9,1,0,0" "5,0,0,7,0,0,0,0,0" "1,6,0,0,0,5,0,0,9" "0,4,9,0,0,0,0,0,0" "0,0,0,0,0,6,2,5,0" "0,5,0,0,1,0,0,0,6" "0,0,0,0,5,0,0,8,0" "0,0,8,0,3,7,0,0,2" "0,0,0,0,0,0,0,0,1"
+python main.py --cubes 003500160 029700005 100000009 049000050 000006010 000250006 000008000 050037000 080002001
 ```
 
 ### Additional Options
@@ -60,6 +63,11 @@ python main.py --cubes "0,0,3,0,2,9,1,0,0" "5,0,0,7,0,0,0,0,0" "1,6,0,0,0,5,0,0,
 Solve puzzle from a file:
 ```bash
 python main.py --file "example.txt"
+```
+
+Solve puzzle from a set of rows (input directly):
+```bash
+python main.py --rows "..."
 ```
 
 Disable Color Output:

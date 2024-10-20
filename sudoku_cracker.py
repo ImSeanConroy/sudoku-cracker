@@ -44,7 +44,7 @@ class SudokuCracker:
                 if self.original_board[row][col] != 0:
                     print(Fore.WHITE + str(cell_value) if color_output else str(cell_value), end=" ")
                 elif cell_value != 0:
-                    print(Fore.BLUE + str(cell_value) if color_output else str(cell_value), end=" ")
+                    print(Fore.LIGHTCYAN_EX + str(cell_value) if color_output else str(cell_value), end=" ")
                 else:
                     print('.', end=" ")
             print("")  # New line after each row
