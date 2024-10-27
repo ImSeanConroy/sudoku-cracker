@@ -11,6 +11,7 @@ def main():
     parser.add_argument('--rows', nargs=9, help='Enter 9 rows')
     parser.add_argument('--no-color', action='store_false', help='Disable color output')
     parser.add_argument('--no-runtime', action='store_false', help='Disable runtime display')
+    parser.add_argument('--show-seperators', action='store_true', help='Disable runtime display')
 
     args = parser.parse_args()
     
@@ -29,13 +30,13 @@ def main():
     solver = SudokuCracker(original_board)
 
     print("\nOriginal Puzzle:")
-    solver.print_board(color_output=args.no_color)
+    solver.print_board(color_output=args.no_color, show_seperators=args.show_seperators)
 
     start_time = time.time()
     if solver.solve_sudoku():
         end_time = time.time()
         print("\nSolved Puzzle:")
-        solver.print_board(color_output=args.no_color)
+        solver.print_board(color_output=args.no_color, show_seperators=args.show_seperators)
         print("")
 
         if args.no_runtime:

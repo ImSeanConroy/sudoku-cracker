@@ -36,11 +36,15 @@ class SudokuCracker:
                     return False
         return True
 
-    def print_board(self, color_output=True):
+    def print_board(self, color_output=True,  show_seperators=False):
         """Print the Sudoku board with optional color output."""
         for row in range(9):
+            if show_seperators and row != 0 and row % 3 == 0:
+                print("- - - - - - - - - - -",)
             for col in range(9):
                 cell_value = self.board[row][col]
+                if show_seperators and col != 0 and col % 3 == 0: 
+                    print("|", end=" ")
                 if self.original_board[row][col] != 0:
                     print(Fore.WHITE + str(cell_value) if color_output else str(cell_value), end=" ")
                 elif cell_value != 0:
