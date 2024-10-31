@@ -4,9 +4,12 @@ from colorama import init, Fore
 init(autoreset=True)
 
 class SudokuCracker:
-    def __init__(self, original_board):
+    def __init__(self, original_board, color_output=True, no_seperators=False, show_progress=False):
         self.original_board = original_board
         self.board = [row[:] for row in original_board]
+        self.color_output = color_output
+        self.no_seperators = no_seperators
+        self.show_progress = show_progress
 
     def is_valid(self, row, col, num):
         """Check if a number can be placed at board[row][col]."""
@@ -36,19 +39,19 @@ class SudokuCracker:
                     return False
         return True
 
-    def print_board(self, color_output=True,  show_seperators=False):
+    def print_board(self):
         """Print the Sudoku board with optional color output."""
         for row in range(9):
-            if show_seperators and row != 0 and row % 3 == 0:
+            if not self.no_seperators and row != 0 and row % 3 == 0:
                 print("- - - - - - - - - - -",)
             for col in range(9):
                 cell_value = self.board[row][col]
-                if show_seperators and col != 0 and col % 3 == 0: 
+                if not self.no_seperators and col != 0 and col % 3 == 0: 
                     print("|", end=" ")
                 if self.original_board[row][col] != 0:
-                    print(Fore.WHITE + str(cell_value) if color_output else str(cell_value), end=" ")
+                    print(Fore.WHITE + str(cell_value) if self.color_output else str(cell_value), end=" ")
                 elif cell_value != 0:
-                    print(Fore.LIGHTCYAN_EX + str(cell_value) if color_output else str(cell_value), end=" ")
+                    print(Fore.LIGHTCYAN_EX + str(cell_value) if self.color_output else str(cell_value), end=" ")
                 else:
                     print('.', end=" ")
             print("")  # New line after each row

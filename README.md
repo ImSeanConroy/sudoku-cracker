@@ -55,7 +55,7 @@ The Sudoku Cracker allows you to input your Sudoku puzzle as 9 groups of 3x3 num
 Solve puzzle from a set of cubes (input directly):
 
 ```bash
-python main.py --cubes 003500160 029700005 100000009 049000050 000006010 000250006 000008000 050037000 080002001 --show-seperators
+python main.py --cubes 003500160 029700005 100000009 049000050 000006010 000250006 000008000 050037000 080002001
 ```
 
 ### Additional Options
@@ -80,9 +80,9 @@ Disable Runtime Display:
 python main.py --cubes "..." --no-runtime
 ```
 
-Show Cube Row and Column Seperators:
+Disable Column and Row Seperators:
 ```bash
-python main.py --cubes "..." --show-seperators
+python main.py --cubes "..." --no-seperators
 ```
 
 ## Development and Testing
