@@ -4,12 +4,11 @@ from colorama import init, Fore
 init(autoreset=True)
 
 class SudokuCracker:
-    def __init__(self, original_board, color_output=True, no_seperators=False, show_progress=False):
+    def __init__(self, original_board, color_output=True, no_seperators=False):
         self.original_board = original_board
         self.board = [row[:] for row in original_board]
         self.color_output = color_output
         self.no_seperators = no_seperators
-        self.show_progress = show_progress
 
     def is_valid(self, row, col, num):
         """Check if a number can be placed at board[row][col]."""
