@@ -60,9 +60,28 @@ python main.py --cubes 003500160 029700005 100000009 049000050 000006010 0002500
 
 ### Additional Options
 
-Solve puzzle from a file:
+Solve puzzle from a text file where each line represents a row of the puzzle and each number is seperated by a space:
 ```bash
 python main.py --file "example.txt"
+```
+
+Example file format (example.txt):
+```bash
+0 0 3 0 2 9 1 0 0 
+5 0 0 7 0 0 0 0 0 
+1 6 0 0 0 5 0 0 9 
+0 4 9 0 0 0 0 0 0 
+0 0 0 0 0 6 2 5 0 
+0 5 0 0 1 0 0 0 6 
+0 0 0 0 5 0 0 8 0 
+0 0 8 0 3 7 0 0 2 
+0 0 0 0 0 0 0 0 1
+```
+
+Solve puzzle from a image. Ensure that the image contains only the Sudoku puzzle and is centered and extends as close to the image’s edges as possible for optimal recognition (example.png):
+
+```bash
+python main.py --image "example.png"
 ```
 
 Solve puzzle from a set of rows (input directly):

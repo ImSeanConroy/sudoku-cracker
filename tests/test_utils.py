@@ -1,5 +1,5 @@
 import pytest
-from utils import parse_cubes, parse_rows
+from utils import parse_cubes, parse_rows, validate_input
 
 def test_valid_cube_input():
   """Test a valid cube input."""
@@ -86,3 +86,27 @@ def test_invalid_row_input():
   # board = parse_cubes(input)
   with pytest.raises(ValueError):
     parse_rows(input)
+
+def test_validate_input_valid():
+    """Valid input with exactly 9 strings of 9 characters each"""
+    validate_input(["123456789"] * 9)
+
+def test_validate_input_too_few_strings():
+    """Less than 9 strings"""
+    with pytest.raises(ValueError, match="Must provide exactly 9 input strings."):
+        validate_input(["123456789"] * 8)
+
+def test_validate_input_too_many_strings():
+    """More than 9 strings"""
+    with pytest.raises(ValueError, match="Must provide exactly 9 input strings."):
+        validate_input(["123456789"] * 10)
+
+def test_validate_input_string_too_short():
+    """One string with fewer than 9 characters"""
+    with pytest.raises(ValueError, match="Input string 0 must have exactly 9 characters."):
+        validate_input(["12345678"] + ["123456789"] * 8)
+
+def test_validate_input_string_too_long():
+    """One string with more than 9 characters"""
+    with pytest.raises(ValueError, match="Input string 0 must have exactly 9 characters."):
+        validate_input(["1234567890"] + ["123456789"] * 8)

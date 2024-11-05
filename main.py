@@ -1,12 +1,13 @@
 import time
 import argparse
 from sudoku_cracker import SudokuCracker
-from utils import parse_cubes, parse_rows, read_from_file
+from utils import parse_cubes, parse_rows, read_from_file, read_from_image
 
 def main():
     """Main function to run the Sudoku Cracker."""
     parser = argparse.ArgumentParser(description="Sudoku Cracker - Solve Sudoku puzzles using brute-force.")
     parser.add_argument('--file', type=str, help='File path to puzzle text file')
+    parser.add_argument('--image', type=str, help='File path to puzzle image')
     parser.add_argument('--cubes', nargs=9, help='Enter 9 cubes as 3x3 groups')
     parser.add_argument('--rows', nargs=9, help='Enter 9 rows')
     parser.add_argument('--no-color', action='store_false', help='Disable color output')
@@ -19,6 +20,8 @@ def main():
 
     if args.file:
         original_board = read_from_file(args.file)
+    elif args.image:
+        original_board = read_from_image(args.image)
     elif args.cubes:
         original_board = parse_cubes(args.cubes)
     elif args.rows:
@@ -27,7 +30,7 @@ def main():
         print("Please provide either a puzzle file or 9 cubes.")
         exit(1)
 
-    solver = SudokuCracker(original_board, color_output=args.no_color, no_seperators=args.no_seperators, show_progress=args.show_progress)
+    solver = SudokuCracker(original_board, color_output=args.no_color, no_seperators=args.no_seperators)
 
     print("\nOriginal Puzzle:")
     solver.print_board()

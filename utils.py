@@ -1,3 +1,8 @@
+import cv2
+import pytesseract
+import numpy as np
+from matplotlib import pyplot as plt
+
 def validate_input(input_strs):
     """Ensure that exactly 9 strings are provided, and each has exactly 9 characters."""
     if len(input_strs) != 9:
@@ -45,3 +50,36 @@ def read_from_file(file_path):
         return []
     return board
 
+def read_from_image(img_path):
+    """Reads a Sudoku puzzle from a specified img file."""
+    print("\nPerforming Image Preprocessing...")
+    preprocessed_image = preprocess_image(img_path)
+
+    print("\nAttempting to Extract Digits...")
+    board = extract_digits(preprocessed_image)
+    return board
+
+def preprocess_image(image_path):
+    """Preprocesses image to grayscale and apply threshold."""
+    img = cv2.imread(image_path, 0)
+    _, thresh = cv2.threshold(img, 110, 255, cv2.THRESH_BINARY)
+    return thresh
+
+def extract_digits(image, size=9):
+    """Extract digits from the Sudoku image."""
+    height, width = image.shape
+    cell_h, cell_w = height // size, width // size
+
+    board = [[0 for _ in range(size)] for _ in range(size)]
+    for i in range(size):
+        for j in range(size):
+            cell = image[i * cell_h: (i + 1) * cell_h, j * cell_w: (j + 1) * cell_w]
+            resized_cell = cv2.resize(cell, (100, 100))
+
+            digit = pytesseract.image_to_string(resized_cell, config='--psm 10 digits')
+            try:
+                if digit.strip() != '':
+                    board[i][j] = int(digit.strip())
+            except ValueError:
+                board[i][j] = 0
+    return board
