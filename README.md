@@ -62,7 +62,7 @@ python main.py --cubes 003500160 029700005 100000009 049000050 000006010 0002500
 
 Solve puzzle from a text file where each line represents a row of the puzzle and each number is seperated by a space:
 ```bash
-python main.py --file "example.txt"
+python main.py --file "examples/example.txt"
 ```
 
 Example file format (example.txt):
@@ -81,7 +81,7 @@ Example file format (example.txt):
 Solve puzzle from a image. Ensure that the image contains only the Sudoku puzzle and is centered and extends as close to the image’s edges as possible for optimal recognition (example.png):
 
 ```bash
-python main.py --image "example.png"
+python main.py --image "examples/example.png"
 ```
 
 Solve puzzle from a set of rows (input directly):
